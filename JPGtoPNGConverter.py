@@ -1,5 +1,7 @@
 import sys
 import os
+import time
+from tqdm import tqdm
 from PIL import Image
 
 
@@ -29,8 +31,13 @@ for filename in os.listdir(image_folder):
     # # save it to the new/ folder
     img.save(f'{output_folder}{cleaned_name}.png', 'png')
 
-    # print the progress of each coverted img
-    print('All Done')
+    # Initial call to print 0% progress
+    for i in tqdm(range(100)):
+        time.sleep(0.005)
+print('All Pictures are Converted')
+
+# print the progress of each coverted img
+# print('All Done')
 
 
 target_pics = ('new')
@@ -48,5 +55,10 @@ for file in os.listdir(target_pics):
     # save the image
     img.save(f_img)
 
-    # printing in the terminal once each image has done resizing
-    print(f'{file} its done resizing!')
+    # Initial call to print 0% progress
+    for i in tqdm(range(100)):
+        time.sleep(0.005)
+print('Resize Successfull!')
+
+# printing in the terminal once each image has done resizing
+# print(f'{file} its done resizing!')
